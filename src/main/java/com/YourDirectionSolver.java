@@ -66,7 +66,11 @@ public class YourDirectionSolver implements DirectionSolver {
                 bestDirection = directions.get(argsMaxFromMap);
                 if(bestDirection == null){
                     bestDirection = Direction.DOWN;
-                    System.out.println("FUCK!!!!!!");
+
+                    if(points[argsMaxFromMap].equals(myBomberMan)){
+                        System.out.println("FUCK!!!!!!");
+                    }
+
                 }
 
                 bestDirection.toString();
@@ -165,8 +169,8 @@ public class YourDirectionSolver implements DirectionSolver {
 
     private int getBombsAt(Board board, int x, int y){
         int count = 0;
-        count +=  board.isAt(x, y, Element.BOOM) ? 512 : 0;
-        count +=  board.isAt(x, y, Element.BOMB_TIMER_1) ? 256 : 0;
+        count +=  board.isAt(x, y, Element.BOOM) ? 256 : 0;
+        count +=  board.isAt(x, y, Element.BOMB_TIMER_1) ? 128 : 0;
         count +=  board.isAt(x, y, Element.BOMB_TIMER_2) ? 8 : 0;
         count +=  board.isAt(x, y, Element.BOMB_TIMER_3) ? 4 : 0;
         count +=  board.isAt(x, y, Element.BOMB_TIMER_4) ? 1 : 0;
